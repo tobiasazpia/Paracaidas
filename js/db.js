@@ -1,8 +1,6 @@
 const Autores = [
     {
-        // nombre:
-        // cantidad de proyectos:
-        // proyectos [];
+
     },
     {
 
@@ -11,8 +9,7 @@ const Autores = [
 
 const Proyectos = [
     {
-        // id: 
-        // Autor:
+
     },
     {
 
