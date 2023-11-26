@@ -108,3 +108,48 @@ a:hover{
         align-items: center; */
     }
 }
+
+#grilla{
+    display: grid;
+    grid-template-areas: 
+    "nav header header"
+    "nav productos publicidad"
+    "nav servicios publicidad"
+    "nav footer footer";
+    grid-template-rows: 100px 1fr 1fr 75px;
+    grid-template-columns: 20% auto 15%; 
+    row-gap: 10px;
+    column-gap: 10px;   
+    height: 50vh;
+    
+    /* justify-items: start;
+    align-items: stretch; */
+}
+
+.border{
+    border: 1px solid black;
+    background-color: yellow;
+    font-size: 25px;
+    padding: 5px;
+    justify-self: center;
+    align-self: center;
+}   
+
+header{
+    grid-area: header;
+}
+footer{
+    grid-area: footer;
+}
+section#productos{
+    grid-area: productos;
+}
+header#servicios{
+    grid-area: servicios;
+}
+nav{
+    grid-area: nav;
+}
+aside{
+    grid-area: publicidad;
+}
