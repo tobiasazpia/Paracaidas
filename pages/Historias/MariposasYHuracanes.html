@@ -8,7 +8,7 @@
   <link rel="shortcut icon" href="../../media/parachuteLogo.jpg" type="image/png">
   <link rel="stylesheet" href="../../styles/style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Josefin+Sans">
-  <script src="../js/main.js"></script>
+  <script src="../../js/Obra.js" defer></script>
 </head>
 
 <body>
@@ -39,7 +39,7 @@
     </div>
   </nav>
   <section class="titulo">
-    <h1>Mariposas y Huracanes</h1>
+    <h1 id="ObraTitulo">Mariposas y Huracanes</h1>
   </section>
   <section class="seccionW">
     <p>El viento en la cara pegaba distintivo a 2000 metros de altura. Le habían asegurado a Juliana que con la mochila
@@ -60,9 +60,18 @@
       recurrir al gran botón en su brazo. Se encendió el propulsor, se desplegaron las alas, y sin perder la sonrisa, se
       volvió una con el viento.
     </p>
-
-    <h4>Autor: <a class="nav-link" href="../Autores/TobiasAzpiazu.html">Tobias Azpiazu</a></h4>
   </section>
+  <section class="seccionB">
+    <button id="btnMeGusta">Me gusta</button>
+    <label id="contadorMeGusta">0</label>
+    <button id="btnDescargar">Descargar</button>
+    <label id="contadorDescargas">0</label>
+    <button id="btnPropina">Propina</button>
+    <h4>Autor: <a class="nav-link" href="../Autores/TobiasAzpiazu.html">Tobias Azpiazu</a></h4>
+    <button id="btnSeguir">Seguir</button>
+    <button id="btnDejarReseña">Dejar Reseña</button>
+  </section>
+</body>
 </body>
 
 </html>
