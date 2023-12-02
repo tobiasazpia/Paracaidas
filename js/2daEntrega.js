@@ -56,14 +56,14 @@ let aut = [] // Array de autores por si el usuario lo pide asi, generado dinamic
 // Principio del codigo
 alert("Bienvenido a Paracaidas, un lugar donde contar y vivir historias")
 
-let pr = prompt("Queres ver: 1 - Obras  o  2 - Autores ?")
+let pr = prompt("Queres ver: 1 - Obras  o  2 - autores ?")
 if (pr == 1) { // Ver Obras -- version orignal del array, no hay que modificar nada, solo mostrar la data
     Obras.forEach(element => {
         output += (++i).toString() + " - " + ObraToString(element);
     });
     output += "\nEl contenido de que obra queres ver?";
 }
-else if (pr == 2) { // Ver Autores, hay que re organizar la data
+else if (pr == 2) { // Ver autores, hay que re organizar la data
     Obras.forEach(element => {
         let au = aut.find(som => som.nombreAutor == element.autor); // chquear si ya existe  el autor
         if(au){

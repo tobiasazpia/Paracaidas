@@ -3,7 +3,7 @@
 // review - like
 
 //Array de Obras
-let Obras = [
+let obras = [
     {
         titulo: "Caminos de Batalla",
         contenido: "Contenido de CdB",
@@ -13,8 +13,8 @@ let Obras = [
         autor: "Tobias Azpiazu"
     },
     {
-        titulo: "Sol",
-        contenido: "Contenido de Sol",
+        titulo: "sol",
+        contenido: "Contenido de sol",
         reseñas: [],
         meGusta: 0,
         descargas: 0,
@@ -40,35 +40,35 @@ let Obras = [
 
 //Funciones
 
-function SetUpLocalStorage() {
+function setUpLocalStorage() {
     //Si no hay local storage, prepararlo; si ya hay, cargarlo en el array de obras
     let index = 0;
     if (localStorage.length == 0) {
-        Obras.forEach(element => {
+        obras.forEach(element => {
             localStorage.setItem((index++).toString(), JSON.stringify(element));
         }
         )
     } else {
-        Obras.forEach(element => {
-            Obras[index] = JSON.parse(localStorage.getItem((index++).toString()));
+        obras.forEach(element => {
+            obras[index] = JSON.parse(localStorage.getItem((index++).toString()));
         })
     }
 }
 
 //Botones de Obra
-function SetUpBotones() {
+function setUpBotones() {
     let btnMG = document.getElementById("btnMeGusta");
     btnMG.addEventListener("click", clickMG);
     function clickMG() {
-        contMG.textContent = ++Obras[indexObra].meGusta;
-        localStorage.setItem(indexObra, JSON.stringify(Obras[indexObra]))
+        contMG.textContent = ++obras[indexObra].meGusta;
+        localStorage.setItem(indexObra, JSON.stringify(obras[indexObra]))
     }
 
     let btnDescargar = document.getElementById("btnDescargar");
     btnDescargar.addEventListener("click", clickDescargar);
     function clickDescargar() {
-        contDescargas.textContent = ++Obras[indexObra].descargas;
-        localStorage.setItem(indexObra, JSON.stringify(Obras[indexObra]))
+        contDescargas.textContent = ++obras[indexObra].descargas;
+        localStorage.setItem(indexObra, JSON.stringify(obras[indexObra]))
     }
 
     let btnPropina = document.getElementById("btnPropina");
@@ -92,19 +92,19 @@ function SetUpBotones() {
 
 //Codigo Principal
 
-SetUpLocalStorage();
+setUpLocalStorage();
 
 //Obtener Indice de la obra en la que estamos
-let ObraTitulo = document.querySelector("h1").textContent.trim();
-let indexObra = Obras.findIndex(element => element.titulo == ObraTitulo);
+let obraTitulo = document.querySelector("h1").textContent.trim();
+let indexObra = obras.findIndex(element => element.titulo == obraTitulo);
 
 //Contadores
 let contMG = document.getElementById("contadorMeGusta");
 let contDescargas = document.getElementById("contadorDescargas");
-contMG.textContent = Obras[indexObra].meGusta;
-contDescargas.textContent = Obras[indexObra].descargas;
+contMG.textContent = obras[indexObra].meGusta;
+contDescargas.textContent = obras[indexObra].descargas;
 
-SetUpBotones();
+setUpBotones();
 
-// var opened = window.open("");
-// opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
+var opened = window.open("mariposasYHuracanes");
+opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");

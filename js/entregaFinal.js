@@ -12,7 +12,7 @@
 // en algun momento mail de confirmacion e integracion con google/facebook
 
 // la data de la pagina
-// usuarios, Autores yjuegos, 3 listas grandes
+// usuarios, autores yjuegos, 3 listas grandes
 
 // cada usuario tiene: nombre, mail, contraseña, id unico / si es un array noams el id unico puede ser la posicion en el array
 // cada autor tiene: nombre, info de contacto, about, lista de juegos como autor, lista de juegos como colaborador, y lista de ids de usuarios que lo siguen 
