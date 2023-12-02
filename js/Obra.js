@@ -105,3 +105,6 @@ contMG.textContent = Obras[indexObra].meGusta;
 contDescargas.textContent = Obras[indexObra].descargas;
 
 SetUpBotones();
+
+// var opened = window.open("");
+// opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
