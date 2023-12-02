@@ -16,11 +16,29 @@ function hacerPathRelativo(pathDesdeIndex) {
     return pathDesdeIndex;
 }
 
+//////Conecta la NavBar a un HTML mostrando su titulo en ella
+function agregarPaginaAlNavBar(pathDesdeIndex, nombre) {
+    const pag = document.createElement("div");
+    pag.classList.add("nav-item");
+    paginas.appendChild(pag);
+
+    const pagLink = document.createElement("a");
+    pagLink.classList.add("nav-link");
+    pagLink.href = hacerPathRelativo(pathDesdeIndex);
+    pagLink.textContent = nombre;
+    pag.appendChild(pagLink);
+}
+
+//////Devuelve un elemento de la clase especificada ya como hijo de la nav
+function agregarSeccionAlNavBar(clase) {
+    const sec = document.createElement("div");
+    sec.classList.add(clase);
+    nav.appendChild(sec);
+    return sec;
+}
 
 ////Logo
-const logo = document.createElement("div");
-logo.classList.add("logo");
-nav.appendChild(logo);
+const logo = agregarSeccionAlNavBar("logo");
 
 const logoLink = document.createElement("a");
 logoLink.href = hacerPathRelativo("#");
@@ -33,61 +51,10 @@ logoImg.alt = "Inicio";
 logoLink.appendChild(logoImg)
 
 ////Paginas
-const paginas = document.createElement("div");
-paginas.classList.add("paginas");
-nav.appendChild(paginas);
+const paginas = agregarSeccionAlNavBar("paginas");
 
-//////Historias
-const historias = document.createElement("div");
-historias.classList.add("nav-item");
-paginas.appendChild(historias);
-
-const histLink = document.createElement("a");
-histLink.classList.add("nav-link");
-histLink.href = hacerPathRelativo("pages/historias.html");
-histLink.textContent = "Historias";
-historias.appendChild(histLink);
-
-//////Juegos De Mesa
-const juegosDeMesa = document.createElement("div");
-juegosDeMesa.classList.add("nav-item");
-paginas.appendChild(juegosDeMesa);
-
-const jDMLink = document.createElement("a");
-jDMLink.classList.add("nav-link");
-jDMLink.href = hacerPathRelativo("pages/juegosDeMesa.html");
-jDMLink.textContent = "Juegos De Mesa";
-juegosDeMesa.appendChild(jDMLink);
-
-//////Juegos De Rol
-const juegosDeRol = document.createElement("div");
-juegosDeRol.classList.add("nav-item");
-paginas.appendChild(juegosDeRol);
-
-const jDRLink = document.createElement("a");
-jDRLink.classList.add("nav-link");
-jDRLink.href = hacerPathRelativo("pages/juegosDeRol.html");
-jDRLink.textContent = "Juegos De Rol";
-juegosDeRol.appendChild(jDRLink);
-
-//////Videojuegos
-const videojuegos = document.createElement("div");
-videojuegos.classList.add("nav-item");
-paginas.appendChild(videojuegos);
-
-const vJLink = document.createElement("a");
-vJLink.classList.add("nav-link");
-vJLink.href = hacerPathRelativo("pages/videojuegos.html");
-vJLink.textContent = "Videojuegos";
-videojuegos.appendChild(vJLink);
-
-//////Autores
-const autores = document.createElement("div");
-autores.classList.add("nav-item");
-paginas.appendChild(autores);
-
-const autLink = document.createElement("a");
-autLink.classList.add("nav-link");
-autLink.href = hacerPathRelativo("pages/autoresYColaboradores.html");
-autLink.textContent = "Autores Y Colaboradores";
-autores.appendChild(autLink);
+agregarPaginaAlNavBar("pages/historias.html","Historias");
+agregarPaginaAlNavBar("pages/juegosDeMesa.html","Juegos De Mesa");
+agregarPaginaAlNavBar("pages/juegosDeRol.html","Juegos De Rol");
+agregarPaginaAlNavBar("pages/videojuegos.html","Videojuegos");
+agregarPaginaAlNavBar("pages/autoresYColaboradores.html","Autores Y Colaboradores");
