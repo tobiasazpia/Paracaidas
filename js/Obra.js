@@ -105,6 +105,3 @@ contMG.textContent = obras[indexObra].meGusta;
 contDescargas.textContent = obras[indexObra].descargas;
 
 setUpBotones();
-
-var opened = window.open("mariposasYHuracanes");
-opened.document.write("<html><head><title>MyTitle</title></head><body>test</body></html>");
