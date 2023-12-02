@@ -1,5 +1,4 @@
 //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
-const nav = document.querySelector(".navbar");
 
 ////Haciendo path absolutos manuamente para poder generalizar la Nav Bar
 ////Tiene que haber una forma menos rebuscada de hacer esto pero no la encontre
@@ -7,16 +6,24 @@ const nav = document.querySelector(".navbar");
 const profundidadDeIndex = 4;
 const ubicacion = window.location.href.split("/");
 const profundidad = ubicacion.length-profundidadDeIndex; 
-const backUp = "../"
+const subimos = "../"
 
 function hacerPathRelativo(pathDesdeIndex) {
     for (let index = 0; index < profundidad; index++) {
-        pathDesdeIndex = backUp + pathDesdeIndex;
+        pathDesdeIndex = subimos + pathDesdeIndex;
     }
     return pathDesdeIndex;
 }
 
-//////Conecta la NavBar a un HTML mostrando su titulo en ella
+//////Devuelve un elemento de la clase especificada ya como hijo de la nav
+function agregarSeccionAlNavBar(clase) {
+    const sec = document.createElement("div");
+    sec.classList.add(clase);
+    nav.appendChild(sec);
+    return sec;
+}
+
+//////Conecta la NavBar a un HTML mostrando su titulo en ella como hijo de la seccion paginas
 function agregarPaginaAlNavBar(pathDesdeIndex, nombre) {
     const pag = document.createElement("div");
     pag.classList.add("nav-item");
@@ -29,13 +36,9 @@ function agregarPaginaAlNavBar(pathDesdeIndex, nombre) {
     pag.appendChild(pagLink);
 }
 
-//////Devuelve un elemento de la clase especificada ya como hijo de la nav
-function agregarSeccionAlNavBar(clase) {
-    const sec = document.createElement("div");
-    sec.classList.add(clase);
-    nav.appendChild(sec);
-    return sec;
-}
+
+//Ejecucion
+const nav = document.querySelector(".navbar");
 
 ////Logo
 const logo = agregarSeccionAlNavBar("logo");
