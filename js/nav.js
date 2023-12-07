@@ -9,6 +9,15 @@
 //     <button id="btnDejarReseña">Dejar Reseña</button>
 //   </section>
 
+
+//Por ahora este archivos controla todo
+//Despues estaria bueno separarlos, uno para la pag de obra, otro para la de categoria, otro para la de autor,y otro para el inicio, y hasta otro que sea la base de datos que todos los demas usan.
+//hasta que sepa como ahcer eso va a ser mas un tema de if statements
+//la funcionalidad de la pagina de categorias ya esta: scanea la base de datos, itnercala secciones poniendo todas las obras de esa categoria (ordenar algabeticamente? ordenar por likes?)
+//queda el resto: la funcionilidad de inicio highlighteando distitntas cosas es muy de credito extra
+// la pagina de autores tiene que escanear la pagina de obras de otra forma... creo que no puede generar dinamicamente la lista de autores, a su vez con cada juego en el que trabajaron? capaz esa es la mejor version de la base de datos, no se
+// la funcionalidad de cada juego dno debe faltar mucho, es mas el tema de la 3ra entrega
+
 let main;
 
 let obras = [
@@ -133,7 +142,8 @@ agregarPaginaAlNavBar("pages/autoresYColaboradores.html", "Autores Y Colaborador
 
 const links = document.querySelectorAll("nav div div a"); // los links a cateogiras (+ autores)
 
-let categoria = "Videojuego"; //Videojuego //Juegos de Mesa // Juegos de Rol // Historia
+let categoria = "cat"; //Videojuego //Juegos de Mesa // Juegos de Rol // Historia
+let obr = "obr";
 let ultimaSeccionB = false;
 
 
@@ -158,6 +168,27 @@ function pedirPagina(evt) {
     //     });
 }
 
+function pedirObra(evt){
+    console.log("´pedimos obra");
+    evt.preventDefault();
+    main = document.querySelector("main");
+    obr = evt.target.textContent;
+    main.innerHTML="";
+
+    const tituloSec = document.createElement("section");
+    tituloSec.classList.add("titulo");
+    main.appendChild(tituloSec);
+    const titulo = document.createElement("h1");
+    titulo.textContent = obr;
+    tituloSec.appendChild(titulo);
+
+    const contenidoSec = document.createElement("section");
+    tituloSec.classList.add("seccionW");
+    
+    contenidoSec.innerHTML =  obras.find(element => element.titulo == obr).contenido;
+    main.appendChild(contenidoSec);
+}
+
 links.forEach(link => {
     link.addEventListener('click', pedirPagina);
 });
@@ -174,9 +205,7 @@ function escribirBody() {
 
     main.appendChild
     obras.forEach(obra => {
-        console.log("en el loop = " + obra.categoria + categoria);
         if (obra.categoria == categoria) {
-            console.log("esta se muestra");
             mostrarObra(obra);
         }
     });
@@ -200,6 +229,8 @@ function mostrarObra(obra) {
     const aut = document.createElement("h4");
     aut.textContent = obra.autor;
     sec.appendChild(aut);
+
+    titulo.addEventListener('click', pedirObra);
     //agregar fecha
     return sec;
 
