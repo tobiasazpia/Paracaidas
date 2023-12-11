@@ -74,7 +74,7 @@ function agregarPaginaAlNavBar(pathDesdeIndex, nombre) {
 
     const pagLink = document.createElement("a");
     pagLink.classList.add("nav-link");
-    pagLink.href = hacerPathRelativo(pathDesdeIndex);
+    pagLink.href = /*hacerPathRelativo(*/pathDesdeIndex/*)*/;
     pagLink.textContent = nombre;
     pag.appendChild(pagLink);
 }
