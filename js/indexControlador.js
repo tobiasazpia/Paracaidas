@@ -37,6 +37,9 @@ function mostrarObraEnSeccion(obra,seccion){
     const aut = document.createElement("h4");
     aut.textContent = obra.autor;
     seccion.appendChild(aut);
+
+    titulo.addEventListener('click', pedirObra);
+    aut.addEventListener('click', pedirAutor);
 }
 
 function definirNuevos(obras){
@@ -54,4 +57,14 @@ function definirPopulares(obras){
 function definirSemanal(obras){
     //requrimiento, las otras dos
     //al azar, que no esten siendo mostrados en ninguna de las otras dos categorias
+}
+
+function pedirObra(evt){
+    localStorage.setItem("tituloObraActual", evt.target.textContent);
+    window.location.href = "pages/obraGenerico.html";
+}
+
+function pedirAutor(evt){
+    localStorage.setItem("autorActual", evt.target.textContent);
+    window.location.href = "pages/autorGenerico.html";
 }

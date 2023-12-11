@@ -31,6 +31,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 sec.appendChild(aut);
             
                 titulo.addEventListener('click', pedirObra);
+                aut.addEventListener('click', pedirAutor);
         });
     })
     .catch((err)=>{console.log(err)})
@@ -45,3 +46,7 @@ function pedirObra(evt){
     window.location.href = "obraGenerico.html";
 }
 
+function pedirAutor(evt){
+    localStorage.setItem("autorActual", evt.target.textContent);
+    window.location.href = "autorGenerico.html";
+}

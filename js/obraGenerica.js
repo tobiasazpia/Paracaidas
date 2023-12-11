@@ -19,8 +19,9 @@ window.addEventListener("DOMContentLoaded", () => {
             tituloBody.textContent = obra.titulo;
             contenido.innerHTML = obra.contenido;
 
-            let linkAutor = obra.autor.replace(/\s/g, ''); // la primera letra esta en mayuscula y en la pagina no, pero parece que no es case sensitive
-            autor.innerHTML = 'Autor: <a class="nav-link" href="autores/' + linkAutor + '.html">' + obra.autor + '</a>';
+            //let linkAutor = obra.autor.replace(/\s/g, ''); // la primera letra esta en mayuscula y en la pagina no, pero parece que no es case sensitive
+            autor.textContent = obra.autor;
+            autor.addEventListener('click', pedirAutor);
 
             prepararLocalStorage();
         })
@@ -59,3 +60,7 @@ function clickDescargar() {
     localStorage.setItem(obra.titulo, JSON.stringify(infoGuardada))
 }
 
+function pedirAutor(evt){
+    localStorage.setItem("autorActual", evt.target.textContent);
+    window.location.href = "autorGenerico.html";
+}

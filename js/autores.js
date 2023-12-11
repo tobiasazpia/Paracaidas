@@ -1,4 +1,3 @@
-let obrasFiltradas;
 let autores = [];
 
 //Carga la data del JSON / base de datos a un array 
