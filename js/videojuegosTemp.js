@@ -1,0 +1,1 @@
+let categoria = "Videojuegos";
