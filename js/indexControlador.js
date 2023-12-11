@@ -9,6 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (localStorage.length == 0) {
         localStorage.setItem("tituloObraActual", "temp");
         localStorage.setItem("autorActual", "temp");
+        localStorage.setItem("profIndex", window.location.href.split("/").length);
     }
     fetch(hacerPathRelativo("js/db.json"))
         .then((respuesta) => {
