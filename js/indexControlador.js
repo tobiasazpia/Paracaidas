@@ -2,29 +2,31 @@ let nuevos = document.querySelector(".seccionW .nuevos");
 let populares = document.querySelector(".seccionW .populares");
 let semanal = document.querySelector(".seccionB .semanales");
 
+let indexDePopular;
+
 //Carga la data del JSON / base de datos a un array 
 window.addEventListener("DOMContentLoaded", () => {
     if (localStorage.length == 0) {
-            localStorage.setItem("tituloObraActual", "temp");
-            localStorage.setItem("autorActual", "temp");
+        localStorage.setItem("tituloObraActual", "temp");
+        localStorage.setItem("autorActual", "temp");
     }
     fetch(hacerPathRelativo("js/db.json"))
-    .then((respuesta)=>{
-        return respuesta.json();
-    })
-    .then((data)=>{
-        nuevos.innerHTML = "";
-        populares.innerHTML = "";
-        semanal.innerHTML = "";
+        .then((respuesta) => {
+            return respuesta.json();
+        })
+        .then((data) => {
+            nuevos.innerHTML = "";
+            populares.innerHTML = "";
+            semanal.innerHTML = "";
 
-        definirNuevos(data);
-        definirPopulares(data);
-        definirSemanal(data);
-    })
-    .catch((err)=>{console.log(err)})
+            definirNuevos(data);
+            definirPopulares(data);
+            definirSemanal(data);
+        })
+        .catch((err) => { console.log(err) })
 });
 
-function mostrarObraEnSeccion(obra,seccion){
+function mostrarObraEnSeccion(obra, seccion) {
 
     const titulo = document.createElement("h2");
     titulo.textContent = obra.titulo;
@@ -42,29 +44,48 @@ function mostrarObraEnSeccion(obra,seccion){
     aut.addEventListener('click', pedirAutor);
 }
 
-function definirNuevos(obras){
+function definirNuevos(obras) {
     //ultimo elemento en la lista
     //mas adelante, ultimos 3, mostrados en un carusel
-    mostrarObraEnSeccion(obras[obras.length-1],nuevos);
+    mostrarObraEnSeccion(obras[obras.length - 1], nuevos);
 }
 
-function definirPopulares(obras){
-    //requerimiento, local storage de likes
-    //mirar el local storage y ver cual tiene mas likes, va aca
+function definirPopulares(obras) {
+    let topMeGusta = -1;
+    let topObra;
+    let index = 0;
+    obras.forEach(obra => {
+        if (JSON.parse(localStorage.getItem(obra.titulo)).meGusta > topMeGusta) {
+            topMeGusta = JSON.parse(localStorage.getItem(obra.titulo)).meGusta;
+            topObra = obra;
+            indexDePopular = index;
+        }
+        index++;
+    });
+    if (topMeGusta >= 0) {
+        mostrarObraEnSeccion(topObra, populares);
+    }
 }
 
-
-function definirSemanal(obras){
-    //requrimiento, las otras dos
+function definirSemanal(obras) {
     //al azar, que no esten siendo mostrados en ninguna de las otras dos categorias
+    let index = getRandomInt(obras.length-2);
+    if (index >= indexDePopular) {
+        index++;
+    }
+    mostrarObraEnSeccion(obras[index],semanal);
 }
 
-function pedirObra(evt){
+function pedirObra(evt) {
     localStorage.setItem("tituloObraActual", evt.target.textContent);
     window.location.href = "pages/obraGenerico.html";
 }
 
-function pedirAutor(evt){
+function pedirAutor(evt) {
     localStorage.setItem("autorActual", evt.target.textContent);
     window.location.href = "pages/autorGenerico.html";
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
 }
