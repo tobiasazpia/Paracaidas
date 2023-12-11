@@ -56,10 +56,12 @@ function definirPopulares(obras) {
     let topObra;
     let index = 0;
     obras.forEach(obra => {
-        if (JSON.parse(localStorage.getItem(obra.titulo)).meGusta > topMeGusta) {
-            topMeGusta = JSON.parse(localStorage.getItem(obra.titulo)).meGusta;
-            topObra = obra;
-            indexDePopular = index;
+        if (JSON.parse(localStorage.getItem(obra.titulo))) {
+            if (JSON.parse(localStorage.getItem(obra.titulo)).meGusta > topMeGusta) {
+                topMeGusta = JSON.parse(localStorage.getItem(obra.titulo)).meGusta;
+                topObra = obra;
+                indexDePopular = index;
+            }
         }
         index++;
     });
@@ -70,11 +72,11 @@ function definirPopulares(obras) {
 
 function definirSemanal(obras) {
     //al azar, que no esten siendo mostrados en ninguna de las otras dos categorias
-    let index = getRandomInt(obras.length-2);
+    let index = getRandomInt(obras.length - 2);
     if (index >= indexDePopular) {
         index++;
     }
-    mostrarObraEnSeccion(obras[index],semanal);
+    mostrarObraEnSeccion(obras[index], semanal);
 }
 
 function pedirObra(evt) {
