@@ -30,4 +30,3 @@ function pedirAutor(evt){
     localStorage.setItem("autorActual", evt.target.textContent);
     window.location.href = "autorGenerico.html";
 }
-

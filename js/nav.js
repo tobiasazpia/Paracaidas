@@ -45,7 +45,6 @@ function prepararNav(){
 //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
 ////Haciendo path absolutos manuamente para poder generalizar la Nav Bar
 ////Tiene que haber una forma menos rebuscada de hacer esto pero no la encontre
-////// Se que el index va a tener 4 elementos en su array por haberlo probado, pero capaz no se mantenga eso fuera de Github pages y live server. Hay alguna forma de chequear al iniciar la pagina? Por ahora queda el 4
 const profundidadDeIndex = localStorage.getItem("profIndex");
 const ubicacion = window.location.href.split("/");
 const profundidad = ubicacion.length - profundidadDeIndex;
@@ -55,8 +54,7 @@ function hacerPathRelativo(pathDesdeIndex) {
     for (let index = 0; index < profundidad; index++) {
          pathDesdeIndex = subimos + pathDesdeIndex;
     }
-   
-    return  /*"Paracaidas/" + */pathDesdeIndex;
+    return pathDesdeIndex;
 }
 
 //////Devuelve un elemento de la clase especificada ya como hijo de la nav

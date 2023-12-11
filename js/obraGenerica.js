@@ -18,8 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
             tituloHead.textContent = obra.titulo;
             tituloBody.textContent = obra.titulo;
             contenido.innerHTML = obra.contenido;
-
-            //let linkAutor = obra.autor.replace(/\s/g, ''); // la primera letra esta en mayuscula y en la pagina no, pero parece que no es case sensitive
             autor.textContent = obra.autor;
             autor.addEventListener('click', pedirAutor);
 

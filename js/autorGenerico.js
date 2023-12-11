@@ -9,11 +9,9 @@ window.addEventListener("DOMContentLoaded", () => {
             let main = document.querySelector("main");
             let nombre = document.querySelector(".titulo");
             let autor = localStorage.getItem("autorActual");
-            nombre.innerHTML = "<h1>" + autor + "</h1>"
+            nombre.innerHTML = "<h1>" + autor + "</h1>";
             data.forEach(obra => {
-                console.log("en loop");
                 if (obra.autor == autor){
-                    console.log("match");
                     obrasDelAutor.push(obra.titulo);
                 }
             });
