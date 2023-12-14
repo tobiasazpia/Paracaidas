@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log("url: " + url)
         console.log(typeof url[url.length-1])
         console.log("url[url.length-1] = " + url[url.length-1] + "!!!")
-        if(/*url[url.length-1] == "index.html" || */url[url.length-1] == " "){
+        if(/*url[url.length-1] == "index.html" || */url[url.length-1] == ""){
             console.log("estamos en index, lenght: " + url.length)
             localStorage.setItem("profIndex", url.length);
         }else{
