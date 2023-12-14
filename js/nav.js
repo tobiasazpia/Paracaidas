@@ -9,10 +9,16 @@ const subimos = "../"
 //Cargar info
 window.addEventListener("DOMContentLoaded", () => {
     //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
-    if (localStorage.length == 0) {
-        localStorage.setItem("tituloObraActual", "temp");
-        localStorage.setItem("autorActual", "temp");
-        localStorage.setItem("profIndex", window.location.href.split("/").length);
+    if (1 >= localStorage.length) {
+        let url = window.location.href.split("/");
+        console.log("url: " + url)
+        if(url[url.length-1] == "index.html"){
+            console.log("estamos en index, lenght: " + url.length)
+            localStorage.setItem("profIndex", url.length);
+        }else{
+            console.log("NO estamos en index, lenght: " + url.length + " pero le restamos 1")
+            localStorage.setItem("profIndex", url.length-1);
+        }
     }
     determinarProfundidad();
 
