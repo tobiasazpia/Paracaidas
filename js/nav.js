@@ -11,10 +11,6 @@ window.addEventListener("DOMContentLoaded", () => {
     //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
     if (1 >= localStorage.length) {
         let url = window.location.href.split("/");
-        console.log("url: " + url)
-        console.log(typeof url[url.length-1])
-        console.log("url[url.length-1] = " + url[url.length-1] + "!!!")
-        console.log("url[url.length-1] = " + url[url.length-2] + "!!!")
         if(url[url.length-1] == "index.html" || url[url.length-2] == "Paracaidas"){
             console.log("estamos en index, lenght: " + url.length)
             localStorage.setItem("profIndex", url.length);
