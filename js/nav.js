@@ -12,7 +12,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if (1 >= localStorage.length) {
         let url = window.location.href.split("/");
         console.log("url: " + url)
-        if(url[url.length-1] == "index.html"){
+        if(url[url.length-1] == "index.html" || url[url.length-1] == "Paracaidas"){
             console.log("estamos en index, lenght: " + url.length)
             localStorage.setItem("profIndex", url.length);
         }else{
