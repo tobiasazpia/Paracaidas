@@ -9,6 +9,11 @@ const subimos = "../"
 //Cargar info
 window.addEventListener("DOMContentLoaded", () => {
     //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
+    if (localStorage.length == 0) {
+        localStorage.setItem("tituloObraActual", "temp");
+        localStorage.setItem("autorActual", "temp");
+        localStorage.setItem("profIndex", window.location.href.split("/").length);
+    }
     determinarProfundidad();
 
     fetch(hacerPathRelativo("js/db.json"))
