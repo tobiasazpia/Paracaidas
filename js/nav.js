@@ -21,7 +21,7 @@ function prepararNav(){
     ////Logo
     const logo = agregarSeccionAlNavBar("logo");
     
-    const logoLink = document.createElement("a");
+    const logoLink = document.createElement("logoLink");
     logoLink.href = hacerPathRelativo("#");
     logo.appendChild(logoLink)
     
@@ -35,10 +35,10 @@ function prepararNav(){
     paginas = agregarSeccionAlNavBar("paginas");
     
     agregarPaginaAlNavBar("pages/historias.html", "Historias");
-    agregarPaginaAlNavBar("pages/juegosDeMesa.html", "Juegos De Mesa");
-    agregarPaginaAlNavBar("pages/juegosDeRol.html", "Juegos De Rol");
+    agregarPaginaAlNavBar("pages/juegosDeMesa.html", "Juegos de mesa");
+    agregarPaginaAlNavBar("pages/juegosDeRol.html", "Juegos de rol");
     agregarPaginaAlNavBar("pages/videojuegos.html", "Videojuegos");
-    agregarPaginaAlNavBar("pages/autoresYColaboradores.html", "Autores Y Colaboradores");
+    agregarPaginaAlNavBar("pages/autoresYColaboradores.html", "Autores y colaboradores");
     
     }
 
