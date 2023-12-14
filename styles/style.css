@@ -39,8 +39,11 @@ nav.navbar {
 
 .nav-brand {
     height: 70px;
-    /*margin-top: 5px; */
-    padding: 5px;
+    margin-top: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 1px;
 }
 
 .nav-brand:hover{
@@ -66,12 +69,17 @@ nav.navbar {
 }
 
 .nav-link {
-    display: inline-block;
+
+    display: flex;
     vertical-align: middle;
     line-height: normal;
     background-color: aliceblue;
     padding: 10px;
     text-decoration: none;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
 }
 
 h1 {

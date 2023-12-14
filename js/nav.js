@@ -21,13 +21,13 @@ function prepararNav(){
     ////Logo
     const logo = agregarSeccionAlNavBar("logo");
     
-    const logoLink = document.createElement("logoLink");
+    const logoLink = document.createElement("a");
     logoLink.href = hacerPathRelativo("#");
     logo.appendChild(logoLink)
     
     const logoImg = document.createElement("img");
     logoImg.classList.add("nav-brand");
-    logoImg.src = hacerPathRelativo("media/parachuteLogo.jpg");
+    logoImg.src = hacerPathRelativo("media/parachuteSinFondocirculo.png");
     logoImg.alt = "Inicio";
     logoLink.appendChild(logoImg)
     
