@@ -9,14 +9,12 @@ const subimos = "../"
 //Cargar info
 window.addEventListener("DOMContentLoaded", () => {
     //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
-        let url = window.location.href.split("/");
-        if(url[url.length-1] == "index.html" || url[url.length-2] == "Paracaidas"){
-            console.log("estamos en index, lenght: " + url.length)
-            localStorage.setItem("profIndex", url.length);
-        }else{
-            console.log("NO estamos en index, lenght: " + url.length + " pero le restamos 1")
-            localStorage.setItem("profIndex", url.length-1);
-        }
+    let url = window.location.href.split("/");
+    if (url[url.length - 1] == "index.html" || url[url.length - 2] == "Paracaidas") {
+        localStorage.setItem("profIndex", url.length);
+    } else {
+        localStorage.setItem("profIndex", url.length - 1);
+    }
     determinarProfundidad();
 
     fetch(hacerPathRelativo("js/db.json"))
@@ -30,7 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
     prepararNav();
 });
 
-function determinarProfundidad(){
+function determinarProfundidad() {
     ////Haciendo path absolutos manuamente para poder generalizar la Nav Bar
     ////Tiene que haber una forma menos rebuscada de hacer esto pero no la encontre
     profundidadDeIndex = localStorage.getItem("profIndex");
