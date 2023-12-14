@@ -122,7 +122,9 @@ h1 {
 .miBoton:hover{
     background-color: palevioletred;
 }
-
+.miBoton:active{
+    color: red;
+}
 a:hover{
     background-color: palevioletred;
 }
