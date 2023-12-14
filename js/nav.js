@@ -9,7 +9,6 @@ const subimos = "../"
 //Cargar info
 window.addEventListener("DOMContentLoaded", () => {
     //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
-    if (1 >= localStorage.length) {
         let url = window.location.href.split("/");
         if(url[url.length-1] == "index.html" || url[url.length-2] == "Paracaidas"){
             console.log("estamos en index, lenght: " + url.length)
@@ -18,7 +17,6 @@ window.addEventListener("DOMContentLoaded", () => {
             console.log("NO estamos en index, lenght: " + url.length + " pero le restamos 1")
             localStorage.setItem("profIndex", url.length-1);
         }
-    }
     determinarProfundidad();
 
     fetch(hacerPathRelativo("js/db.json"))
