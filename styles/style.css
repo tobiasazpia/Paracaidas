@@ -31,23 +31,16 @@ nav.navbar {
 }
 
 .logo {
+    /* background-color: red; */
     float: left;
     height: 100%;
     width: 10%;
-    text-align: center;  
+    text-align: center;
 }
 
 .nav-brand {
     height: 70px;
-    margin-top: 1px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 4px;
-    padding-bottom: 1px;
-}
-
-.nav-brand:hover{
-    background: palevioletred;
+    margin-top: 5px;
 }
 
 .paginas {
@@ -69,17 +62,9 @@ nav.navbar {
 }
 
 .nav-link {
-
-    display: flex;
+    display: inline-block;
     vertical-align: middle;
     line-height: normal;
-    background-color: aliceblue;
-    padding: 10px;
-    text-decoration: none;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-    margin-top: 8px;
 }
 
 h1 {
@@ -125,19 +110,19 @@ h1 {
     color: red;
 }
 a:hover{
-    background-color: palevioletred;
+    background-color: white;
 }
 
-/* @media screen and (max-width: 758px) { /* basicamente: if screen.width < 758, then ...
+@media screen and (max-width: 758px) { /* basicamente: if screen.width < 758, then ... */
     .paginas {
         background-color: green;
-        height: 100%;
+        /* height: 100%;
         width: 90%;
         display:block;
         justify-content: space-evenly;
-        align-items: center;
+        align-items: center; */
     }
-} */
+}
 
 #grilla{
     display: grid;
