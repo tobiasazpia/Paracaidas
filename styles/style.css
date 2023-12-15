@@ -1,4 +1,3 @@
-
 body {
     font-family: "Josefin Sans", sans-serif;
     background-color: rgb(129, 200, 202);
@@ -34,7 +33,7 @@ nav.navbar {
     float: left;
     height: 100%;
     width: 10%;
-    text-align: center;  
+    text-align: center;
 }
 
 .nav-brand {
@@ -46,7 +45,7 @@ nav.navbar {
     padding-bottom: 1px;
 }
 
-.nav-brand:hover{
+.nav-brand:hover {
     background: palevioletred;
 }
 
@@ -96,6 +95,14 @@ h1 {
     padding-bottom: 1px;
 }
 
+.mainTitulo {
+    font-size: 50px;
+}
+
+.mainSubtitulo {
+    font-size: 20px;
+}
+
 .seccionB,
 .seccionW {
     padding: 30px;
@@ -109,7 +116,8 @@ h1 {
     background-color: rgb(129, 200, 202);
 }
 
-.miBotonAutor, .miBotonObra {
+.miBotonAutor,
+.miBotonObra {
     width: fit-content;
     padding-left: 10px;
     padding-right: 10px;
@@ -117,21 +125,25 @@ h1 {
     padding-bottom: 10px;
 }
 
-.miBotonAutor{
+.miBotonAutor {
     background-color: rgb(188, 209, 228);
 }
 
-.miBotonObra{
+.miBotonObra {
     background-color: rgb(122, 138, 191);
 }
 
-.miBotonAutor:hover, .miBotonObra:hover{
+.miBotonAutor:hover,
+.miBotonObra:hover {
     background-color: palevioletred;
 }
-.miBotonAutor:active, .miBotonObra:active{
+
+.miBotonAutor:active,
+.miBotonObra:active {
     color: red;
 }
-a:hover{
+
+a:hover {
     background-color: palevioletred;
 }
 
@@ -146,47 +158,52 @@ a:hover{
     }
 } */
 
-#grilla{
+#grilla {
     display: grid;
-    grid-template-areas: 
-    "nav header header"
-    "nav productos publicidad"
-    "nav servicios publicidad"
-    "nav footer footer";
+    grid-template-areas:
+        "nav header header"
+        "nav productos publicidad"
+        "nav servicios publicidad"
+        "nav footer footer";
     grid-template-rows: 100px 1fr 1fr 75px;
-    grid-template-columns: 20% auto 15%; 
+    grid-template-columns: 20% auto 15%;
     row-gap: 10px;
-    column-gap: 10px;   
+    column-gap: 10px;
     height: 50vh;
-    
+
     /* justify-items: start;
     align-items: stretch; */
 }
 
-.border{
+.border {
     border: 1px solid black;
     background-color: yellow;
     font-size: 25px;
     padding: 5px;
     justify-self: center;
     align-self: center;
-}   
+}
 
-header{
+header {
     grid-area: header;
 }
-footer{
+
+footer {
     grid-area: footer;
 }
-section#productos{
+
+section#productos {
     grid-area: productos;
 }
-header#servicios{
+
+header#servicios {
     grid-area: servicios;
 }
-nav{
+
+nav {
     grid-area: nav;
 }
-aside{
+
+aside {
     grid-area: publicidad;
 }
