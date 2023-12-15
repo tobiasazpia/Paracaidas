@@ -24,7 +24,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
             prepararLocalStorage();
         })
-        .catch((err) => { console.log(err) })
+        .catch((err) => {         Swal.fire({
+            title: "Whoops!",
+            text: "Algo salio mal...",
+            icon: "error",
+            showCancelButton: true,
+            confirmButtonText: "Probemos de nuevo",
+            cancelButtonText: "Ignorar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                location.reload();
+            }
+          }); })
 });
 
 function prepararLocalStorage(){
@@ -45,8 +57,6 @@ let btnMG = document.getElementById("btnMeGusta");
 let contMG = document.getElementById("contadorMeGusta");
 btnMG.addEventListener("click", clickMG);
 function clickMG() {
-    console.log("mg clicik");
-    console.log(infoGuardada);
     contMG.textContent = ++infoGuardada.meGusta;
     localStorage.setItem(obra.titulo, JSON.stringify(infoGuardada))
 }

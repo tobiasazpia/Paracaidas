@@ -36,7 +36,19 @@ window.addEventListener("DOMContentLoaded", () => {
                 aut.addEventListener('click', pedirAutor);
         });
     })
-    .catch((err)=>{console.log(err)})
+    .catch((err)=>{        Swal.fire({
+            title: "Whoops!",
+            text: "Algo salio mal...",
+            icon: "error",
+            showCancelButton: true,
+            confirmButtonText: "Probemos de nuevo",
+            cancelButtonText: "Ignorar"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                localStorage.clear();
+                location.reload();
+            }
+          });})
 });
 
 function esDeEstaCategoria(obra){
