@@ -115,6 +115,13 @@ h1 {
     padding-right: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.miBotonAutor{
+    background-color: rgb(188, 209, 228);
+}
+
+.miBotonObra{
     background-color: rgb(122, 138, 191);
 }
 
