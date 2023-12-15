@@ -69,6 +69,8 @@ function definirPopulares(obras) {
     });
     if (topMeGusta >= 0) {
         mostrarObraEnSeccion(topObra, populares);
+    }else{
+        mostrarObraEnSeccion(obras[0], populares);
     }
 }
 
