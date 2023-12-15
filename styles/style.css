@@ -184,9 +184,11 @@ a:hover {
     align-self: center;
 } */
 
+/*tratando de llenar las categorias con grillas*/
+
 .grillaL,
 .grillaR {
-    display: grid;
+    display:grid;
     grid-template-rows: 200px 200px 200px;
 }
 
@@ -194,29 +196,64 @@ a:hover {
     grid-template-columns: 400px 400px auto;
     grid-template-areas:
         "head head head"
-        "info img img"
-        "info img img";
+        "info imagen imagen"
+        "info imagen imagen";
 }
 
 .grillaR {
     grid-template-columns: auto 400px 400px;
     grid-template-areas:
         "head head head"
-        "img img info"
-        "img img info";
+        "imagen imagen info"
+        "imagen imagen info";
 }
 
 .head {
+    display: flex;
     grid-area: head;
-    background-color: red;
+    border-top: 5px solid white;
 }
 
 .info {
+    display: grid;
     grid-area: info;
     background-color: aqua;
+    grid-template-rows: 100px 100px 100px 100px;
+    grid-template-columns: auto;
+    grid-template-areas:
+        "pGrilla"
+        "pGrilla"
+        "pGrilla"
+        "autGrilla";
 }
 
-.img {
-    grid-area: img;
+.imagen {
+    display: flex;
+    grid-area: imagen;
     background-color: chartreuse;
+}
+
+.head h2{
+    display: flex;
+    width: 100%;
+    margin: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.pGrilla{
+    grid-area: pGrilla;
+    width: 100%;
+    margin: 10px;
+}
+
+.autGrilla{
+    grid-area: autGrilla;
+    display: flex;
+    margin: 20px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
 }

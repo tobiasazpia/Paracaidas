@@ -32,32 +32,46 @@ window.addEventListener("DOMContentLoaded", () => {
                 ultimaSeccionR = !ultimaSeccionR;
                 main.appendChild(sec);
 
+                //elementos de la grilla
                 const head = document.createElement("div");
                 head.classList.add("head");
                 sec.appendChild(head);
                 const info = document.createElement("div");
                 info.classList.add("info");
                 sec.appendChild(info);
-                const img = document.createElement("div");
-                img.classList.add("img");
-                sec.appendChild(img);
+                const imagen = document.createElement("div");
+                imagen.classList.add("imagen");
+                sec.appendChild(imagen);
 
+                //En head
                 const titulo = document.createElement("h2");
                 titulo.textContent = obra.titulo;
                 titulo.classList.add("miBotonObra");
                 head.appendChild(titulo);
-                const resumen = document.createElement("p");
+
+                //En Info
+                const resumen = document.createElement("div");
+                resumen.classList.add("pGrilla");
                 resumen.textContent = obra.resumen;
                 info.appendChild(resumen);
-                const aut = document.createElement("h4");
+                const aut = document.createElement("div");
+                aut.classList.add("autGrilla");
                 aut.textContent = obra.autor;
                 aut.classList.add("miBotonAutor");
                 info.appendChild(aut);
-            
+                
+                //En imagen
+                // const imgCont = document.createElement("div");
+                // imgCont.classList.add("imgContenedor");
+                // imagen.appendChild(imgCont)
+
+                const img = document.createElement("img");
+                img.src = "../" + obra.img;
+                img.alt = "Imagen de " + obra.titulo;
+                imagen.appendChild(img)
+
                 titulo.addEventListener('click', pedirObra);
                 aut.addEventListener('click', pedirAutor);
-
-                console.log(main);
         });
     })
     .catch((err)=>{        Swal.fire({
