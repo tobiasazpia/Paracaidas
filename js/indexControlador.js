@@ -3,14 +3,10 @@ let populares = document.querySelector(".seccionW .populares");
 let semanal = document.querySelector(".seccionB .semanales");
 
 let indexDePopular;
+let indexDeNuevo;
 
 //Carga la data del JSON / base de datos a un array 
 window.addEventListener("DOMContentLoaded", () => {
-    // if (localStorage.length == 0) {
-    //     localStorage.setItem("tituloObraActual", "temp");
-    //     localStorage.setItem("autorActual", "temp");
-    //     localStorage.setItem("profIndex", window.location.href.split("/").length);
-    // }
     fetch(hacerPathRelativo("js/db.json"))
         .then((respuesta) => {
             return respuesta.json();
@@ -24,7 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
             definirPopulares(data);
             definirSemanal(data);
         })
-        .catch((err) => {         Swal.fire({
+        .catch((err) => {     console.error(err)   /*Swal.fire({
             title: "Whoops!",
             text: "Algo salio mal...",
             icon: "error",
@@ -36,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 localStorage.clear();
                 location.reload();
             }
-          }); })
+          }); */})
 });
 
 function mostrarObraEnSeccion(obra, seccion) {
@@ -60,9 +56,22 @@ function mostrarObraEnSeccion(obra, seccion) {
 }
 
 function definirNuevos(obras) {
-    //ultimo elemento en la lista
+    //Usando luxon para determinar la obra mas reciente
     //mas adelante, ultimos 3, mostrados en un carusel
-    mostrarObraEnSeccion(obras[obras.length - 1], nuevos);
+    // mostrarObraEnSeccion(obras[obras.length - 1], nuevos);
+    let masNueva = luxon.DateTime.local(1970,1,1);
+    let obraReciente;
+    let estaObraFecha;
+    let index = 0;
+    obras.forEach(obra => {
+        estaObraFecha =  luxon.DateTime.fromSQL(obra.fecha);
+        if (estaObraFecha > masNueva) {
+            obraReciente = obra;
+            masNueva = estaObraFecha;
+            indexDeNuevo = index;
+        }
+    });
+    mostrarObraEnSeccion(obraReciente, nuevos);
 }
 
 function definirPopulares(obras) {
@@ -89,9 +98,8 @@ function definirPopulares(obras) {
 function definirSemanal(obras) {
     //al azar, que no esten siendo mostrados en ninguna de las otras dos categorias
     let index = getRandomInt(obras.length - 2);
-    if (index >= indexDePopular) {
-        index++;
-    }
+    if (index >= indexDePopular) index++;
+    if (index >= indexDeNuevo) index++;
     mostrarObraEnSeccion(obras[index], semanal);
 }
 

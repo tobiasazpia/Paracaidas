@@ -1,6 +1,7 @@
 let obra;
 let tituloHead = document.getElementsByTagName("title");
 let tituloBody = document.getElementById("ObraTitulo");
+let fechaBody = document.getElementById("ObraFecha");
 let contenido = document.querySelector(".contenido");
 let autor = document.querySelector(".autor");
 
@@ -17,6 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             tituloHead.textContent = obra.titulo;
             tituloBody.textContent = obra.titulo;
+            fechaBody.textContent = luxon.DateTime.fromSQL(obra.fecha).toLocaleString();
             contenido.innerHTML = obra.contenido;
             autor.textContent = obra.autor;
             autor.classList.add("miBotonAutor");
