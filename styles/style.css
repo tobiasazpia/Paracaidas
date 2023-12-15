@@ -109,9 +109,8 @@ h1 {
     background-color: rgb(129, 200, 202);
 }
 
-.miBoton {
+.miBotonObra, .miBotonAutor {
     width: fit-content;
-    /* border-style: double; */
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
@@ -119,10 +118,10 @@ h1 {
     background-color: rgb(122, 138, 191);
 }
 
-.miBoton:hover{
+.miBotonObra:hover, .miBotonAutor:hover{
     background-color: palevioletred;
 }
-.miBoton:active{
+.miBotonObra:active, .miBotonAutor:active{
     color: red;
 }
 a:hover{
