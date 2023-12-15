@@ -62,9 +62,8 @@ function prepararNav() {
     agregarPaginaAlNavBar("pages/juegosDeRol.html", "Juegos de rol");
     agregarPaginaAlNavBar("pages/videojuegos.html", "Videojuegos");
     agregarPaginaAlNavBar("pages/autoresYColaboradores.html", "Autores Y Colaboradores");
-
-
-}
+    
+    }
 
 function hacerPathRelativo(pathDesdeIndex) {
     for (let index = 0; index < profundidad; index++) {
