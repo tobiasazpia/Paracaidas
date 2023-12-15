@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
         autores.forEach(autor =>{
             const aut = document.createElement("h4");
             aut.textContent = autor;
-            aut.classList.add("miBotonAutor");
+            aut.classList.add("miBoton");
             main.appendChild(aut);
         
             aut.addEventListener('click', pedirAutor);

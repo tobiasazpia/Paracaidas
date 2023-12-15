@@ -6,11 +6,11 @@ let indexDePopular;
 
 //Carga la data del JSON / base de datos a un array 
 window.addEventListener("DOMContentLoaded", () => {
-    if (localStorage.length == 0) {
-        localStorage.setItem("tituloObraActual", "temp");
-        localStorage.setItem("autorActual", "temp");
-        localStorage.setItem("profIndex", window.location.href.split("/").length);
-    }
+    // if (localStorage.length == 0) {
+    //     localStorage.setItem("tituloObraActual", "temp");
+    //     localStorage.setItem("autorActual", "temp");
+    //     localStorage.setItem("profIndex", window.location.href.split("/").length);
+    // }
     fetch(hacerPathRelativo("js/db.json"))
         .then((respuesta) => {
             return respuesta.json();
@@ -31,7 +31,7 @@ function mostrarObraEnSeccion(obra, seccion) {
 
     const titulo = document.createElement("h2");
     titulo.textContent = obra.titulo;
-    titulo.classList.add("miBotonObra");
+    titulo.classList.add("miBoton");
     seccion.appendChild(titulo);
 
     const resumen = document.createElement("p");
@@ -40,7 +40,7 @@ function mostrarObraEnSeccion(obra, seccion) {
 
     const aut = document.createElement("h4");
     aut.textContent = obra.autor;
-    aut.classList.add("miBotonAutor");
+    aut.classList.add("miBoton");
     seccion.appendChild(aut);
 
     titulo.addEventListener('click', pedirObra);
@@ -69,8 +69,6 @@ function definirPopulares(obras) {
     });
     if (topMeGusta >= 0) {
         mostrarObraEnSeccion(topObra, populares);
-    }else{
-        mostrarObraEnSeccion(obras[0], populares);
     }
 }
 

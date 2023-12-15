@@ -22,14 +22,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 main.appendChild(sec);
                 const titulo = document.createElement("h2");
                 titulo.textContent = obra.titulo;
-                titulo.classList.add("miBotonObra");
+                titulo.classList.add("miBoton");
                 sec.appendChild(titulo);
                 const resumen = document.createElement("p");
                 resumen.textContent = obra.resumen;
                 sec.appendChild(resumen);
                 const aut = document.createElement("h4");
                 aut.textContent = obra.autor;
-                aut.classList.add("miBotonAutor");
+                aut.classList.add("miBoton");
                 sec.appendChild(aut);
             
                 titulo.addEventListener('click', pedirObra);

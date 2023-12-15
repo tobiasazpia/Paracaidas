@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
             tituloBody.textContent = obra.titulo;
             contenido.innerHTML = obra.contenido;
             autor.textContent = obra.autor;
-            autor.classList.add("miBotonAutor");
+            autor.classList.add("miBoton");
             autor.addEventListener('click', pedirAutor);
 
             prepararLocalStorage();
