@@ -44,6 +44,8 @@ let btnMG = document.getElementById("btnMeGusta");
 let contMG = document.getElementById("contadorMeGusta");
 btnMG.addEventListener("click", clickMG);
 function clickMG() {
+    console.log("mg clicik");
+    console.log(infoGuardada);
     contMG.textContent = ++infoGuardada.meGusta;
     localStorage.setItem(obra.titulo, JSON.stringify(infoGuardada))
 }

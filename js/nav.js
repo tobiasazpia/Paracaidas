@@ -39,22 +39,7 @@ function prepararNav(){
     agregarPaginaAlNavBar("pages/juegosDeRol.html", "Juegos De Rol");
     agregarPaginaAlNavBar("pages/videojuegos.html", "Videojuegos");
     agregarPaginaAlNavBar("pages/autoresYColaboradores.html", "Autores Y Colaboradores");
-
-    Swal.fire({
-      title: "Whoops!",
-      text: "Algo saliemo mal...",
-      icon: "error",
-      confirmButtonText: "Probemos de nuevo",
-      showCancelButton: true,
-      cancelButtonText: "Ignorar"
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        localStorage.clear();
-        location.reload();
-      }
-    });
-
+    
     }
 
 //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
