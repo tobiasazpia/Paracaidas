@@ -59,6 +59,12 @@ btnMG.addEventListener("click", clickMG);
 function clickMG() {
     contMG.textContent = ++infoGuardada.meGusta;
     localStorage.setItem(obra.titulo, JSON.stringify(infoGuardada))
+    Toastify({
+        position: "left",
+        gravity: "bottom",
+        text: "Me Gusta!",
+        duration: 3000     
+        }).showToast();
 }
 
 let btnDescargar = document.getElementById("btnDescargar");
@@ -67,6 +73,12 @@ btnDescargar.addEventListener("click", clickDescargar);
 function clickDescargar() {
     contDescargas.textContent = ++infoGuardada.descargas;
     localStorage.setItem(obra.titulo, JSON.stringify(infoGuardada))
+    Toastify({
+        position: "left",
+        gravity: "bottom",
+        text: "Por ahora no se puede descargar, pero gracias por el entusiasmo! Lo anotamos en el contador!",
+        duration: 3000     
+        }).showToast();
 }
 
 function pedirAutor(evt){
