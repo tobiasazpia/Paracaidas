@@ -1,73 +1,73 @@
 let nav;
 let paginas;
+let profundidadDeIndex;
+let ubicacion;
+let profundidad;
+
+const subimos = "../"
 
 //Cargar info
 window.addEventListener("DOMContentLoaded", () => {
+    //Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
+    let url = window.location.href.split("/");
+    if (url[url.length - 1] == "index.html" || url[url.length - 2] == "Paracaidas") {
+        localStorage.setItem("profIndex", url.length);
+    } else {
+        localStorage.setItem("profIndex", url.length - 1);
+    }
+    determinarProfundidad();
+
     fetch(hacerPathRelativo("js/db.json"))
-    .then((respuesta)=>{
-        return respuesta.json();
-    })
-    .then((data)=>{
-        obras = data;
-    })
-    .catch((err)=>{console.log(err)})
+        .then((respuesta) => {
+            return respuesta.json();
+        })
+        .then((data) => {
+            obras = data;
+        })
+        .catch((err) => { console.log(err) })
     prepararNav();
 });
 
+function determinarProfundidad() {
+    ////Haciendo path absolutos manuamente para poder generalizar la Nav Bar
+    ////Tiene que haber una forma menos rebuscada de hacer esto pero no la encontre
+    profundidadDeIndex = localStorage.getItem("profIndex");
+    ubicacion = window.location.href.split("/");
+    profundidad = ubicacion.length - profundidadDeIndex;
+}
+
 //crear nav
-function prepararNav(){
+function prepararNav() {
+
     nav = document.querySelector(".navbar");
-    
+
     ////Logo
     const logo = agregarSeccionAlNavBar("logo");
-    
+
     const logoLink = document.createElement("a");
     logoLink.href = hacerPathRelativo("#");
     logo.appendChild(logoLink)
-    
+
     const logoImg = document.createElement("img");
     logoImg.classList.add("nav-brand");
-    logoImg.src = hacerPathRelativo("media/parachuteLogo.jpg");
+    logoImg.src = hacerPathRelativo("media/parachuteSinFondocirculo.png");
     logoImg.alt = "Inicio";
     logoLink.appendChild(logoImg)
-    
+
     ////Paginas
     paginas = agregarSeccionAlNavBar("paginas");
-    
+
     agregarPaginaAlNavBar("pages/historias.html", "Historias");
-    agregarPaginaAlNavBar("pages/juegosDeMesa.html", "Juegos De Mesa");
-    agregarPaginaAlNavBar("pages/juegosDeRol.html", "Juegos De Rol");
+    agregarPaginaAlNavBar("pages/juegosDeMesa.html", "Juegos de mesa");
+    agregarPaginaAlNavBar("pages/juegosDeRol.html", "Juegos de rol");
     agregarPaginaAlNavBar("pages/videojuegos.html", "Videojuegos");
     agregarPaginaAlNavBar("pages/autoresYColaboradores.html", "Autores Y Colaboradores");
-
-    Swal.fire({
-      title: "Whoops!",
-      text: "Algo saliemo mal...",
-      icon: "error",
-      confirmButtonText: "Probemos de nuevo",
-      showCancelButton: true,
-      cancelButtonText: "Ignorar"
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        localStorage.clear();
-        location.reload();
-      }
-    });
-
+    
     }
-
-//Generando la Navbar dinamicamente para no repetir codigo HTML y que sea mas mantenible
-////Haciendo path absolutos manuamente para poder generalizar la Nav Bar
-////Tiene que haber una forma menos rebuscada de hacer esto pero no la encontre
-const profundidadDeIndex = localStorage.getItem("profIndex");
-const ubicacion = window.location.href.split("/");
-const profundidad = ubicacion.length - profundidadDeIndex;
-const subimos = "../"
 
 function hacerPathRelativo(pathDesdeIndex) {
     for (let index = 0; index < profundidad; index++) {
-         pathDesdeIndex = subimos + pathDesdeIndex;
+        pathDesdeIndex = subimos + pathDesdeIndex;
     }
     return pathDesdeIndex;
 }
