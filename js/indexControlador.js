@@ -31,7 +31,7 @@ function mostrarObraEnSeccion(obra, seccion) {
 
     const titulo = document.createElement("h2");
     titulo.textContent = obra.titulo;
-    titulo.classList.add("miBoton");
+    titulo.classList.add("miBotonObra");
     seccion.appendChild(titulo);
 
     const resumen = document.createElement("p");
@@ -40,7 +40,7 @@ function mostrarObraEnSeccion(obra, seccion) {
 
     const aut = document.createElement("h4");
     aut.textContent = obra.autor;
-    aut.classList.add("miBoton");
+    aut.classList.add("miBotonAutor");
     seccion.appendChild(aut);
 
     titulo.addEventListener('click', pedirObra);
